@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="A functional webframework built using [justpy-svelte](https://github.com/Monallabs-org/justpy-svelte)" /><meta name="author" content="Kabira K." />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>ofjustpy</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Introduction";
+        var mkdocs_page_input_path = "README.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> ofjustpy
+        </a>
+        <div class="version">
+          0.1.0
+        </div><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href=".">Introduction</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#descriptionusage">Description/Usage</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#a-demo-example-for-the-impatient-ones">A demo example -- for the impatient ones</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#advanced-notes">Advanced notes</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="ofjustpy_programming/">Ofjustpy Programming Paradigm</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="API/">API</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">ofjustpy</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Introduction</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ofjustpy"><a href="https://github.com/Monallabs-org/ofjustpy">Ofjustpy</a></h1>
+<p>Ofjustpy is an extension and wrapper to <a href="https://github.com/Monallabs-org/justpy-svelte">Justpy-Svelte</a> -- a  webdevelopment framework in python. Ofjustpy offers several enhancments to Justpy. Most prominent
+being that ofjustpy enables a functional bottom-up approach toward building a webpage.
+The claim is that  this leads to a simpler more intutive codebase along with better resuablity.
+Additionally, it  provides
+1. hooks that automatically track all the created components 
+2. a mechanisum to organize components within a non-dom hierarchical context
+3. use svelte as the underlying frontend javascript engine 
+4. ability to build higher order components using ofjustpy framework, tailwind and svelte. 
+5. Tailwind tags are first class python expressions allowing complex manipulation of styles.</p>
+<h2 id="descriptionusage">Description/Usage</h2>
+<h3 id="a-demo-example-for-the-impatient-ones">A demo example -- for the impatient ones</h3>
+<pre><code class="language-python">import ofjustpy as oj
+from py_tailwind_utils import *
+from addict_tracking_changes import Dict
+
+def wp_hello_world(request):
+    session_id = request.session_id
+    session_manager = oj.get_session_manager(session_id)
+    stubStore = session_manager.stubStore
+    with oj.sessionctx(session_manager):
+        with session_manager.uictx(&quot;header&quot;) as headerCtx:
+            title_ = oj.Title_(&quot;title&quot;, &quot;A hello world page&quot;, pcp=[bg/pink/&quot;100/20&quot;])
+        with session_manager.uictx(&quot;body&quot;) as bodyCtx:
+            body_ = oj.Halign_(
+                oj.Prose_(&quot;greeting&quot;, &quot;Hello world! This page was written using ofjustpy python  framework &quot;, pcp=[fz.lg, shadow._, shadow/gray/400, ta.center]), pcp=[mr/st/8]
+                )
+        with session_manager.uictx(&quot;footer&quot;) as bodyCtx:
+            footer_ = oj.Halign_(
+                oj.Prose_(&quot;depart&quot;, &quot;Thats all folks! Hope you got the broad drift of this framework&quot;, pcp=[mr/st/64, ta.right]), &quot;end&quot;
+                )
+        oj.Container_(&quot;tlc&quot;,
+                          cgens = [title_,
+                                   body_,
+                                   footer_],
+                          pcp=[H/&quot;screen&quot;, bg/gray/&quot;100/20&quot;])
+        wp = oj.WebPage_(&quot;wp_hello_world&quot;,
+                         cgens= [stubStore.tlc],
+                             title=&quot;Readme demo page&quot;)()
+
+        return wp
+
+app = oj.build_app()
+app.add_jproute(&quot;/&quot;, wp_hello_world)
+
+</code></pre>
+<p>The webpage will be rendered as:</p>
+<p><img alt="Hello world page screenshot" src="/demos/ofjustpy_hello_world.png?raw=true" title="Optional Title" /></p>
+<p>The key takeaway is that the webpage is build bottom up. First, the most atomic components are declared. 
+Then higher order components are declared that contain previously declared component. The components are weaved together at the last step when the webpage instance is requested. </p>
+<p>See here(todo) for a more comprehensive demo that showcases all the basic (or html components) and higher order components built using tailwind and svelte.</p>
+<h3 id="advanced-notes">Advanced notes</h3>
+<ol>
+<li>Checkout <img alt="htmlcomponents" src="/ofjustpy/htmlcomponents.py" /> to see the list all htmlcomponent supported</li>
+<li>checkout justpy (https://justpy.io/) and <a href="https://github.com/sandeep-gh/ofjustpy-react">ofjustpy-react</a> on handling frontend events</li>
+<li>checkout ofjustpy-extn for more advanced components (such as json navigator) build using ofjustpy</li>
+</ol>
+<p>Finally, if you are looking for a more detailed/comprehensive guide/tutorial, raise an issue and we can discuss there. </p>
+<p>Developed by: https://webworks.monallabs.in/ofjustpy</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="ofjustpy_programming/" class="btn btn-neutral float-right" title="Ofjustpy Programming Paradigm">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="ofjustpy_programming/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.4.2
+Build Date UTC : 2022-12-18 04:02:03.292685+00:00
+-->

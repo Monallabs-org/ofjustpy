@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Kabira K." />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>API - ofjustpy</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "API";
+        var mkdocs_page_input_path = "API.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> ofjustpy
+        </a>
+        <div class="version">
+          0.1.0
+        </div><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ofjustpy_programming/">Ofjustpy Programming Paradigm</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">API</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#notable-html-components">Notable Html Components</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#button_">Button_</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#select_">Select_</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#container-html-components">Container Html components</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#stackv_">StackV_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#stackh_">StackH_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#stackw_">StackW_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#stackd_">StackD_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#stackg_">StackG_</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#customopiniatedcomposed-components">Custom/Opiniated/Composed Components</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#subheadingbanner_">SubheadingBanner_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#labeledinput_">LabeledInput_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#checkbox_">Checkbox_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#checkboxinput_">CheckboxInput_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#subsection_">Subsection_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#prose_">Prose_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#keyvalue_">KeyValue_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#subsubheadingbanner_">SubsubheadingBanner_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#subsubsection_">Subsubsection_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#barpanel_">Barpanel_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#withbanner_">WithBanner_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#halign_">Halign_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#valign_">Valign_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#align_">Align_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#subtitle_">SubTitle_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#title_">Title_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#tr_">Tr_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#table_">Table_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#inputjbtn_">InputJBtn_</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#components-api">Components API</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#inputchangeonly_">InputChangeOnly_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#togglebtn_">ToggleBtn_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#slider_">Slider_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#colorselector_">ColorSelector_</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#form_">Form_</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#webpage">Webpage</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#webpage_">WebPage_</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">ofjustpy</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>API</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ofjustpy-api-reference">Ofjustpy API reference</h1>
+<p>~~ This page is still under development ~~ </p>
+<p>This just gives a list of APIs to build html components. 
+For details checkout <a href="/src/ofjustpy/htmlcomponents.py">htmlcomponents.py</a>.</p>
+<p>For usage checkout <a href="../ofjustpy_programming/"><code>programming with ofjustpy</code></a>. </p>
+<h2 id="notable-html-components">Notable Html Components</h2>
+<h4 id="button_">Button_</h4>
+<h4 id="select_">Select_</h4>
+<h3 id="container-html-components">Container Html components</h3>
+<p>These are  div components annotated with tailwind classes to perform
+container functionality. </p>
+<h4 id="stackv_">StackV_</h4>
+<p>place components stacked vertically</p>
+<h4 id="stackh_">StackH_</h4>
+<p>place components stacked horizontally</p>
+<h4 id="stackw_">StackW_</h4>
+<p>place components stacked horizontally but wrap around </p>
+<h4 id="stackd_">StackD_</h4>
+<p>A special component that mimics the  deck of cards.</p>
+<h4 id="stackg_">StackG_</h4>
+<p>Place components in a grid of given row and sizes </p>
+<h3 id="customopiniatedcomposed-components">Custom/Opiniated/Composed Components</h3>
+<p>These components are either derived by composing basic
+htmlcomponents or by annotating tailwind constructs to 
+basic htmlcomponents. </p>
+<h4 id="subheadingbanner_">SubheadingBanner_</h4>
+<h4 id="labeledinput_">LabeledInput_</h4>
+<h4 id="checkbox_">Checkbox_</h4>
+<h4 id="checkboxinput_">CheckboxInput_</h4>
+<h4 id="subsection_">Subsection_</h4>
+<h4 id="prose_">Prose_</h4>
+<h4 id="keyvalue_">KeyValue_</h4>
+<h4 id="subsubheadingbanner_">SubsubheadingBanner_</h4>
+<h4 id="subsubsection_">Subsubsection_</h4>
+<h4 id="barpanel_">Barpanel_</h4>
+<h4 id="withbanner_">WithBanner_</h4>
+<h4 id="halign_">Halign_</h4>
+<h4 id="valign_">Valign_</h4>
+<h4 id="align_">Align_</h4>
+<h4 id="subtitle_">SubTitle_</h4>
+<h4 id="title_">Title_</h4>
+<h4 id="tr_">Tr_</h4>
+<h4 id="table_">Table_</h4>
+<h4 id="inputjbtn_">InputJBtn_</h4>
+<h3 id="components-api">Components API</h3>
+<h4 id="inputchangeonly_">InputChangeOnly_</h4>
+<h4 id="togglebtn_">ToggleBtn_</h4>
+<h4 id="slider_">Slider_</h4>
+<h4 id="colorselector_">ColorSelector_</h4>
+<h4 id="form_">Form_</h4>
+<h3 id="webpage">Webpage</h3>
+<h4 id="webpage_">WebPage_</h4>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ofjustpy_programming/" class="btn btn-neutral float-left" title="Ofjustpy Programming Paradigm"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ofjustpy_programming/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

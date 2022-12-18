@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Kabira K." />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Ofjustpy Programming Paradigm - ofjustpy</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Ofjustpy Programming Paradigm";
+        var mkdocs_page_input_path = "ofjustpy_programming.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> ofjustpy
+        </a>
+        <div class="version">
+          0.1.0
+        </div><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Ofjustpy Programming Paradigm</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#background">Background</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#dom-tree">DOM tree</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#object-orientedimperative-vs-functional-way-towards-building-a-dom-tree">Object-oriented/imperative vs. functional way towards building a DOM tree</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#functional-approach-for-dom-tree-stubs-and-containers">Functional approach for DOM tree: Stubs and containers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-ofjustpy-component-zoo">The ofjustpy component zoo</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../API/">API</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">ofjustpy</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Ofjustpy Programming Paradigm</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ofjustpy-programming-paradigm">Ofjustpy programming paradigm</h1>
+<p>When building a webapp, the
+first goal is  to build
+what is called document-object-model or DOM tree. The browser engine will
+use this DOM-tree to render out the webpage. </p>
+<h2 id="background">Background</h2>
+<h3 id="dom-tree">DOM tree</h3>
+<p>In its simplest sense, a DOM tree is collection HTML components
+arranged in a tree structure which is defind using parent-child
+relationship between components.</p>
+<h2 id="object-orientedimperative-vs-functional-way-towards-building-a-dom-tree">Object-oriented/imperative vs. functional way towards building a DOM tree</h2>
+<p>In Justpy, and most other object-oriented/imperative programming,
+express the DOM tree in a imperative object-oriented style.
+Here, one would create a button object (an instance of Button type)
+and add it to some  parent component (another instance some html component type):</p>
+<pre><code class="language-python">mybtn = Button(a=parent)
+</code></pre>
+<p>.
+The html equivalent for the above statement is</p>
+<pre><code class="language-html">&lt;parent&gt;
+&lt;button&gt;
+&lt;/button&gt;
+&lt;/parent&gt;
+</code></pre>
+<p>Two points to note here:
+the creation of button instance is coupled/tied to building the DOM tree (or a link of the tree).</p>
+<p>Ofjustpy doesn't follow the classic object-oriented impreative style.
+Instead ofjustpy follows a functional paradigm, 
+where  object instantiation is decoupled from DOM creation.</p>
+<h3 id="functional-approach-for-dom-tree-stubs-and-containers">Functional approach for DOM tree: Stubs and containers</h3>
+<p>In Ofjustpy, instead of creating an instance of a component type, you
+first  create/instantiate a component <code>stubs</code>.
+What are component <code>stubs</code>? Stubs are functions that when invoked will generate the
+respective component. 
+We follow the convention that capital letter name with "<em>" suffix referes to stub generators
+while names starting with small letters and ending with "</em>" suffix is the stub.
+The code example below  illustrates this with example:</p>
+<pre><code class="language-python">button_ = oj.Button_(&quot;mybtn&quot;, text=&quot;Submit&quot;)
+</code></pre>
+<p>Here <code>oj.Button_</code> is a stub generator while <code>button_</code> is the generated stub.</p>
+<p>Once we have generated the stubs, we can define parent-child relationship to build the 
+the DOM tree. 
+In ofjustpy, stub generator functions
+have an argument called <code>cgens</code>.  The cgens takes in the list/iterator
+over stubs that will the child components of that component. 
+As example to illustrate:</p>
+<pre><code class="language-python">lots_of_buttons = [oj.Button_(f&quot;btn_{i}&quot;,
+                              ...
+                              )
+                   for i in range(0,10)
+                              ]
+oj.Div_(&quot;buttonpanel&quot;, cgens = logs_of_buttons)                              
+</code></pre>
+<p>In the above code, ofjustpy will create 10 buttons and
+make them child of a Div component.</p>
+<h3 id="the-ofjustpy-component-zoo">The ofjustpy component zoo</h3>
+<p>Lets briefly familiarze with types of component present in current ofjustpy ecosytem.
+We have all the usual</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../API/" class="btn btn-neutral float-right" title="API">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../API/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
